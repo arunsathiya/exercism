@@ -17,7 +17,7 @@ jobs:
       - name: Find directories
         id: set-matrix
         run: |
-          echo "::set-output name=matrix::$(find exercism/go -mindepth 1 -type d | jq -R -s -c 'split("\n")[:-1] | map({directory: .})')"
+          echo "::set-output name=matrix::$(find go -mindepth 1 -type d | jq -R -s -c 'split("\n")[:-1] | map({directory: .})')"
 
   test:
     needs: build

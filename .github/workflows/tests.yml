@@ -17,7 +17,7 @@ jobs:
       - name: Find directories
         id: set-matrix
         run: |
-          dirs=$(find go -mindepth 1 -type d -exec basename {} \; | jq -R -s -c 'split("\n")[:-1] | map({directory: .})')
+          dirs=$(find go -mindepth 1 -type d -exec basename {} \; | jq -R -s -c 'split("\n")[:-1]')
           echo "::set-output name=matrix::$dirs"
 
   test:

@@ -18,7 +18,7 @@ jobs:
         id: set-matrix
         run: |
           dirs=$(find go -mindepth 1 -type d -exec basename {} \; | jq -R -s -c 'split("\n")[:-1]')
-          echo "::set-output name=matrix::$dirs"
+          echo "matrix=$dirs" >> $GITHUB_OUTPUT
 
   test:
     needs: build

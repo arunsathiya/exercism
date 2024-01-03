@@ -39,7 +39,7 @@ jobs:
           for dir in "${{ matrix.dir }}"; do
             if [ -d "$dir" ]; then
               echo "Running tests in $dir"
-              (cd "$dir" && go test ./...)
+              (cd "go/$dir" && go test ./...)
             else
               echo "No Go files in $dir"
             fi

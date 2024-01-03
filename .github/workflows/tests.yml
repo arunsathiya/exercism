@@ -36,12 +36,12 @@ jobs:
         uses: actions/checkout@v3
       - name: Run tests in each directory
         run: |
-          cd go
           for dir in "${{ matrix.dirs }}"; do
-            if [ -d "$dir" ]; then
-              echo "Running tests in $dir"
-              (cd "$dir" && go test ./...)
+            full_dir="go/$dir"
+            if [ -d "$full_dir" ]; then
+              echo "Running tests in $full_dir"
+              (cd "$full_dir" && go test ./...)
             else
-              echo "No Go files in $dir"
+              echo "No Go files in $full_dir"
             fi
           done
